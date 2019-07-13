@@ -8,12 +8,12 @@ import glob, os
 
 
 class Order(models.Model):
-    order_list = models.CharField(max_length=200, unique=False)
+    order_item = models.CharField(max_length=200, unique=False)
     slug = models.SlugField(max_length=50, unique=True, default=uuid.uuid1)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='client_name')
     created_on = models.DateTimeField(auto_now_add=True)
     cost = models.IntegerField(default=0)
-    content = models.TextField()
+    comment = models.TextField()
 
     def __str__(self):
         return self.order_list
