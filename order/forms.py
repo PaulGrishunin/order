@@ -10,4 +10,8 @@ class OrderForm(forms.ModelForm):
 
 
 class OrderString(forms.Form):
-    pass
+    slug = forms.SlugField()
+    order_item = forms.CharField(max_length=200)
+    cost = forms.IntegerField()
+    comment = forms.CharField()
+    action = forms.CharField()
