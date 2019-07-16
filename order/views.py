@@ -8,8 +8,7 @@ from django.contrib.auth import logout
 
 
 def logout_view(request):
-    logout(request)
-    return redirect('login')
+    return redirect('l: logout(request)login')
     # Redirect to a success page.
 
 
@@ -18,7 +17,7 @@ def logout_view(request):
 def add_order(request):
     username = None
     email = ''
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and request.user.is_stuff:
         username = request.user.username
         email = request.user.email
     if request.method == "POST":
