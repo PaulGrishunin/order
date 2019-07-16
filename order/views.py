@@ -54,12 +54,12 @@ def order_list(request):
                     c.order_item = form.cleaned_data['order_item']
                     c.cost = form.cleaned_data['cost']
                     c.comment = ''.join(form.cleaned_data['comment'])
-                    send_mail('Changes on order', 'your order was updated', 'noreply@localho.st',[c.author.email,])
-                    # print('!!!INFO!!! send message to {} as order updated'.format(c.author.email))
+                    #send_mail('Changes on order', 'your order was updated', 'noreply@localho.st',[c.author.email,])
+                    print('!!!INFO!!! send message to {} as order updated'.format(c.author.email))
                     c.save()
                 elif form.cleaned_data['action'] == 'Delete':
-                    send_mail('Changes on order', 'your order was deleted', 'noreply@localho.st',[c.author.email,])
-                    # print('!!!INFO!!! send message to {} as order deleted'.format(c.author.email))
+                    #send_mail('Changes on order', 'your order was deleted', 'noreply@localho.st',[c.author.email,])
+                    print('!!!INFO!!! send message to {} as order deleted'.format(c.author.email))
                     c.delete()
         orders = Order.objects.all()
         total_cost = orders.aggregate(Sum('cost'))['cost__sum']
